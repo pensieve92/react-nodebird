@@ -26,7 +26,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app",
-    "start": "node app"
+    "start": "cross-env NODE_ENV=production pm2 start app"
   },
   "author": "Jeon BH",
   "license": "ISC"

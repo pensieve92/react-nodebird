@@ -6,6 +6,8 @@ const passport = require('passport');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 const path = require('path');
+const hpp = require('hpp'); // 배포서버 필수
+const helmet = require('helmet'); //배포서버 필수 
 
 const postRouter = require('./routes/post');
 const postsRouter = require('./routes/posts'); // 단수 복수 구분하는 스타일
@@ -26,16 +28,21 @@ db.sequelize.sync()
     .catch(console.err);
 
 passportConfig();
-
+if(process.env.NODE_ENV === 'production'){  // 배포모드
+    app.use(morgan('combined')); // 로그가 자세해져서, 접속자의 ip를 알수있고, 해킹, 디도스를 추적할 수있다.
+    app.use(hpp()); 
+    app.use(helmet()); 
+}else{  // 개발모드
+    app.use(morgan('dev'));     
+}
 // app.use : express서버에 먼가를 장착한다는 의미, 순서중요
-
-app.use(morgan('dev')); 
 
 // app.use(cors()); // 모든 요청 허용 = res.setHeader('Access-Control-Allow-Origin', '*')
 // app.use(cors()); // 쿠키 전달 허용 = res.setHeader('Access-Control-Allow-credentials',  true)
 app.use(cors({
     // origin: '*', // credentials: true 이면 *를 사용할 수 없음
-    origin: true,   // true : * 대신 보낸 곳의 주소가 자동으로 들어가 편리 
+    // origin: true,   // true : * 대신 보낸 곳의 주소가 자동으로 들어가 편리 
+    origin: ['http://localhost:3060', 'maesseil.com'],   // true : * 대신 보낸 곳의 주소가 자동으로 들어가 편리 
 
     // credentials: false // 기본값 false, 하지만 아예 안 적으면 어떤 문제가 생김    
     // 요청을 보낸사람이 누구인지 알려면 쿠키를 보내야 되는데, 
