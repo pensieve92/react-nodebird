@@ -67,7 +67,16 @@ sudo npx pm2 reload all
 
 aws ip변경됨 >> 탄력적ip 돈듬 
 
-  
+local의 back> npm i pm2 cross-env helmat hpp
+
+git pull error  
+Please commit your changes or stash them before you merge.        
+Aborting   
+git reset --hard
+
+sudo lsof -i tcp:3065 // 3065 포트실행중인지 확인
+sudo lsof -i tcp:80   // 80 포트실행중인지 확인
+
 >- ### 프론트 서버 배포하기  
 >- ### 도메인 연결하기  
 >- ### S3 연결하기  
