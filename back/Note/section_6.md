@@ -67,7 +67,7 @@ sudo npx pm2 reload all
 
 aws ip변경됨 >> 탄력적ip 돈듬 
 
-local의 back> npm i pm2 cross-env helmat hpp
+local의 back> npm i pm2 cross-env helmet hpp
 
 git pull error  
 Please commit your changes or stash them before you merge.        
