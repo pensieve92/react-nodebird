@@ -5,6 +5,7 @@ import {logoutRequestAction} from '../reducers/user';
 import useSWR from 'swr';
 import axios from 'axios';
 import Router from 'next/router';
+import { backUrl } from '../config/config';
 
 const fetcher = (url) =>axios.get(url, {withCredentials: true}).then((result) => result.data);
 const UserProfile = () => {
@@ -19,8 +20,8 @@ const UserProfile = () => {
 
     // fetcher : 백엔드 요청보낼떄 axios
     // data, error 둘다 없으면 로딩중    
-    const { data: followersData, error: followerError}  = useSWR(`http://localhost:3065/user/followers?limit=${followersLimit}`, fetcher);
-    const { data: followingsData, error: followingError} = useSWR(`http://localhost:3065/user/followings?limit=${followingsLimit}`, fetcher);
+    const { data: followersData, error: followerError}  = useSWR(`${backUrl}/user/followers?limit=${followersLimit}`, fetcher);
+    const { data: followingsData, error: followingError} = useSWR(`${backUrl}/user/followings?limit=${followingsLimit}`, fetcher);
    
     const onLogout = useCallback(() => {
         // setIsLoggedIn(false);

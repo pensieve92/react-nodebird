@@ -44,7 +44,7 @@ function signUpAPI(data) {
     // data : email, password, nickname
     // get, delete는 데이터를 못넘김
     // post, put, patch는 데이터를 넘길수있음    
-    // return axios.post('http://localhost:3065/user', data);
+    // return axios.post('http://3065/user', data);
 
     // http://localhost:3065 중복 제거 : sagas/index.js
     return axios.post('/user', data);

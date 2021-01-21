@@ -3,9 +3,10 @@ import axios from 'axios';
 
 import userSaga from './user';
 import postSaga from './post';
+import { backUrl } from '../config/config';
 
 // 백엔드 서버 url 중복 제거
-axios.defaults.baseURL = 'http://localhost:3065';
+axios.defaults.baseURL = backUrl;
 axios.defaults.withCredentials = true;
 
 
