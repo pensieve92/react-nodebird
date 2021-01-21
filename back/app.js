@@ -42,7 +42,7 @@ if(process.env.NODE_ENV === 'production'){  // 배포모드
 app.use(cors({
     // origin: '*', // credentials: true 이면 *를 사용할 수 없음
     // origin: true,   // true : * 대신 보낸 곳의 주소가 자동으로 들어가 편리 
-    origin: ['http://localhost:3060', 'maesseil.com'],   // true : * 대신 보낸 곳의 주소가 자동으로 들어가 편리 
+    origin: ['http://localhost:3060', 'maesseil.com', 'http://52.78.70.83'],   // true : * 대신 보낸 곳의 주소가 자동으로 들어가 편리 
 
     // credentials: false // 기본값 false, 하지만 아예 안 적으면 어떤 문제가 생김    
     // 요청을 보낸사람이 누구인지 알려면 쿠키를 보내야 되는데, 

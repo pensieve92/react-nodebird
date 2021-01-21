@@ -78,6 +78,21 @@ sudo lsof -i tcp:3065 // 3065 포트실행중인지 확인
 sudo lsof -i tcp:80   // 80 포트실행중인지 확인
 
 >- ### 프론트 서버 배포하기  
+
+$ npm i pm2
+
+//front는 소스변경후 빌드를 먼저 해야함
+// 백엔드는 필요없음
+npm run build
+
+// pm2로 npm start하기
+npx pm2 start npm -- start 
+
+
+
+
+
+
 >- ### 도메인 연결하기  
 >- ### S3 연결하기  
 >- ### Lambda로 이미지 리사이징 하기
