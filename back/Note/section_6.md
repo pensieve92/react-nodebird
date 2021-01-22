@@ -79,15 +79,26 @@ sudo lsof -i tcp:80   // 80 포트실행중인지 확인
 
 >- ### 프론트 서버 배포하기  
 
-$ npm i pm2
+front> npm i pm2
 
-//front는 소스변경후 빌드를 먼저 해야함
+// *front는 소스변경후 빌드를 먼저 해야함
 // 백엔드는 필요없음
 npm run build
 
 // pm2로 npm start하기
-npx pm2 start npm -- start 
+sudo npx pm2 start npm -- start 
+sudo npx pm2 monit
 
+백엔드 재시작
+// sudo npx pm2 reload all
+
+
+mysql접속
+sudo su
+mysql -uroot -p
+mysql > use node-bird
+mysql > show tables
+테이블들이 대문자로 생성되어서 대소문자 구분이 안되어있음..
 
 
 
