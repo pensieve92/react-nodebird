@@ -100,6 +100,11 @@ mysql > use node-bird
 mysql > show tables
 테이블들이 대문자로 생성되어서 대소문자 구분이 안되어있음..
 
+mysql > DROP DATABASE `node-bird`;
+
+
+
+
 
 
 
